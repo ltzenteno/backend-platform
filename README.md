@@ -10,16 +10,24 @@ Project that contains an API with:
 
 ### Installing new Dependencies
 
-to install new python dependencies, add them to the `pyproject.toml`
+to install new python dependencies, with poetry (i.e. "djangorestframework"):
 
-then rebuild the image with `docker-compose build`
+	docker-compose exec backend sh -c "poetry config virtualenvs.create false && poetry add djangorestframework^3.12.2"
 
-then remove backend container with:
+**NOTE:** _don't forget to commit `pyproject.toml` and `poetry.lock` changes after installing the new dependency_
+
+#### Rebuilding images: 
+
+	docker-compose build
+
+#### Rebuilding existing container:
+
+First remove the container (i.e. `backend` container)
 
 	docker-compose rm -sfv backend
 
-and re-tun it again
+and re-run it again
 	
 	docker-compose up -d backend
 
-**TODO: Create README**
+**TODO: keep adding stuff to README**
