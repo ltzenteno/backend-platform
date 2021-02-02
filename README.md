@@ -12,7 +12,9 @@ Project that contains an API with:
 
 to install new python dependencies, with poetry (i.e. "djangorestframework"):
 
-	docker-compose exec backend sh -c "poetry config virtualenvs.create false && poetry add djangorestframework^3.12.2"
+	docker-compose exec backend sh -c "poetry config virtualenvs.create false && poetry add djangorestframework@^3.12.2"
+
+you can use `-D` if the package is a development dependency
 
 **NOTE:** _don't forget to commit `pyproject.toml` and `poetry.lock` changes after installing the new dependency_
 
